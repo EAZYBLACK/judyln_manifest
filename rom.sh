@@ -33,4 +33,13 @@ else
 fi
 init_ksu
 
+cd build/make
+git fetch github --unshallow
+git fetch https://github.com/EAZYBLACK/cr_build.git 14.0
+git cherry-pick 785f90c649dee54e2aeb769447cd5b913f8e9e2c
+git cherry-pick d5ec62691b7821ccb19ebdd9c836916ffa869727
+git cherry-pick 6e6d2ee61a60a76429b320a88fb7b5c8266fb3ac
+cd ../..
+echo SAR BACK
+
 echo "Done!"

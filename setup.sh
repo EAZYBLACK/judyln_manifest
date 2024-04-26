@@ -1,34 +1,9 @@
 #!/bin/bash
+cd .repo/local_manifests
 hals=("hardware/qcom-caf/sdm845/audio" "hardware/qcom-caf/sdm845/display" "hardware/qcom-caf/sdm845/media")
 
-echo -e "### Mini Manifest Editor by Juleast###"
-echo -e "--------------------------------------"
-echo "Select the device:"
-echo "1. judyln"
-echo "2. judypn"
-echo "3. judyp"
-echo "4. ALL"
-read -p "Choose your device (1-4): " device_choice
-
-case "${device_choice}" in
-  1)
-    device="judyln"
-    ;;
-  2)
-    device="judypn"
-    ;;
-  3)
-    device="judyp"
-    ;;
-  4)
-    device=("judyln" "judypn" "judyp")
-    ;;
-  *)
-    echo "Invalid choice!"
-    echo "Exiting..."
-    exit 1
-    ;;
-esac
+device_choice=4
+device=("judyln" "judypn" "judyp")
 newline="  <project path=\"device/lge/$device\" name=\"android_device_lge_$device\" remote=\"jlst\" />"
 echo -e "\nEditing XML files..."
 
@@ -61,7 +36,7 @@ for hal in ${hals[@]}; do
   sed -i "${loc_info[1]}s/.*/  <!-- SDM845 yeet ${name[-1]} -->/" ${loc_info[0]}
 done
 
-cd ../local_manifests
+cd ../..
 
 echo "Done!"
 echo "Note: If you are not sure of the changes, double check the files."

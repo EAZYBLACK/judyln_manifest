@@ -1,4 +1,5 @@
 #!/bin/bash
+
 cd .repo/local_manifests
 hals=("hardware/qcom-caf/sdm845/audio" "hardware/qcom-caf/sdm845/display" "hardware/qcom-caf/sdm845/media")
 
